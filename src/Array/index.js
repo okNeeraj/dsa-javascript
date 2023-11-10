@@ -5,6 +5,15 @@ const consoleOutputStyle = 'color: #20aa0f; font-size: 14px; font-weight: bold;'
 const consoleOutput = (output) => {
 	console.log('%c✅ Output ::', consoleOutputStyle)
 	console.log(output)
+	console.log(`
+	
+	`)
+}
+
+const consoleSeperator = () => {
+	console.log(`
+
+	`)
 }
 
 const Array = (arrayType = 'default') => {
@@ -16,11 +25,22 @@ const Array = (arrayType = 'default') => {
 
 export const traversing = (array) => {
 	console.log('%c👨‍💻 Input', consoleInputStyle, array);
+	consoleSeperator();
 
 	const traverse = () => {
 		for (let i = 0; i < array.length; i++) {
 			console.log(array[i])
 		}
+	}
+
+	const getLength = (array) => {
+		console.log(
+			'%c👉 Operation ➡', consoleHeadingStyle,
+			`Get the length of given array.`
+		)
+		const result = array.lengt;
+		consoleOutput(result)
+		return result;
 	}
 
 	const access = (index) => {
@@ -59,19 +79,16 @@ export const traversing = (array) => {
 			console.log(`Invalid Position! You can provide postion only between ${0} to ${array.length - 1}`)
 		}
 
-
+		consoleOutput(updatedArray)
 		return updatedArray;
 	}
 
 	return {
 		traverse,
+		getLength,
 		access,
 		insert
 	};
-}
-
-export const getLength = (array) => {
-	return array.length;
 }
 
 export default Array;

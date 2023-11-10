@@ -1,5 +1,4 @@
 import Array, {
-	getLength,
 	traversing
 } from './Array'
 
