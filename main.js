@@ -3,7 +3,7 @@ import App from './src/app'
 document.querySelector('#app').innerHTML = `
   <div>
     <h1>🔥 Hello DSA!</h1>
-    <button id="getResult" type="button">Get Result</button>
+    <p>Open Browser's console to do practice.</p>
   </div>
 `;
 
