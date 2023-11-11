@@ -1,4 +1,4 @@
-import Array, {
+import ArrayOperation, {
 	traversing
 } from './Array'
 
@@ -9,7 +9,7 @@ const App = () => {
 	 * access(index) // return the value of given index
 	 */
 
-	const arr = Array(false) || [1, 2, 3, 4, 5, 6, 7, 8, 9];
+	const arr = ArrayOperation(false) || [1, 2, 3, 4, 5, 6, 7, 8, 9];
 	const traversal = traversing(arr);
 
 	// Access value of index
@@ -17,7 +17,7 @@ const App = () => {
 	// console.log(indexValue)
 
 	// Insert Element
-	const insertToPosition = traversal.insert('Neeraj', 2);
+	const insertToPosition = traversal.insertElement('Neeraj', 9);
 	// console.log(insertToPosition)
 }
 

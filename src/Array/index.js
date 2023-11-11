@@ -1,56 +1,37 @@
-const consoleHeadingStyle = 'color: #0e8892; font-size: 14px; font-weight: bold;';
-const consoleInputStyle = 'color: #ccae0f; font-size: 14px; font-weight: bold;';
-const consoleOutputStyle = 'color: #20aa0f; font-size: 14px; font-weight: bold;';
+import {
+	consoleInput,
+	consoleOperation,
+	consoleOutput
+} from '../Utils/console';
 
-const consoleOutput = (output) => {
-	console.log('%c✅ Output ::', consoleOutputStyle)
-	console.log(output)
-	console.log(`
-	
-	`)
-}
 
-const consoleSeperator = () => {
-	console.log(`
-
-	`)
-}
-
-const Array = (arrayType = 'default') => {
+const ArrayOperation = (arrayType = 'default') => {
 	if (arrayType === false) {
 		return null;
 	}
 	return [1, 2, 5, 3, 4];
 }
 
-export const traversing = (array) => {
-	console.log('%c👨‍💻 Input', consoleInputStyle, array);
-	consoleSeperator();
+export const traversing = (inputArray) => {
+	consoleInput(inputArray);
 
 	const traverse = () => {
-		for (let i = 0; i < array.length; i++) {
-			console.log(array[i])
+		for (let i = 0; i < inputArray.length; i++) {
+			console.log(inputArray[i])
 		}
 	}
 
-	const getLength = (array) => {
-		console.log(
-			'%c👉 Operation ➡', consoleHeadingStyle,
-			`Get the length of given array.`
-		)
-		const result = array.lengt;
-		consoleOutput(result)
+	const getLength = (inputArray) => {
+		consoleOperation(`Get the length of given array.`)
+		const result = inputArray.lengt;
+		consoleOutput(result);
 		return result;
 	}
 
 	const access = (index) => {
-		console.log(
-			'%c👉 Operation ➡', consoleHeadingStyle,
-			`Access the value of index (${index}) from input.`
-		)
-
-		if (index !== undefined && index >= 0 && index < array.length) {
-			const result = array[index];
+		consoleOperation(`Access the value of index (${index}) from input.`);
+		if (index !== undefined && index >= 0 && index < inputArray.length) {
+			const result = inputArray[index];
 			consoleOutput(result)
 			return result;
 		} else {
@@ -58,27 +39,24 @@ export const traversing = (array) => {
 		}
 	};
 
-	const insert = (element, position) => {
-		console.log(
-			'%c👉 Operation ➡', consoleHeadingStyle,
-			`Insert a new element (${element}) into the index (${position}).`
-		)
-		let updatedArray = [];
-		if (position >= 0 && position < array.length) {
-			for (let i = 0; i <= position; i++) {
-				if (i === position) {
-					updatedArray.push(element)
-				}
-				updatedArray.push(array[i])
-			}
+	const insertElement = (element, position) => {
+		consoleOperation(`Insert a new element (${element}) into the index (${position}).`)
 
-			for (let i = position + 1; i < array.length; i++) {
-				updatedArray.push(array[i])
-			}
-		} else {
-			console.log(`Invalid Position! You can provide postion only between ${0} to ${array.length - 1}`)
+		if (position === 'undefined' || position < 0 || position > inputArray.length) {
+			console.warn(`Inavlid index/position ! index/position should be between 0 to ${inputArray.length}`)
+			return;
 		}
 
+		let updatedArray = [];
+
+		for (let i = 0; i < position; i++) {
+			updatedArray[i] = inputArray[i];
+		}
+		updatedArray[position] = element;
+
+		for (let i = position; i < inputArray.length; i++) {
+			updatedArray[i + 1] = inputArray[i];
+		}
 		consoleOutput(updatedArray)
 		return updatedArray;
 	}
@@ -87,8 +65,8 @@ export const traversing = (array) => {
 		traverse,
 		getLength,
 		access,
-		insert
+		insertElement
 	};
 }
 
-export default Array;
+export default ArrayOperation;
