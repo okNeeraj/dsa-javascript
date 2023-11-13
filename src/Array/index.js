@@ -5,6 +5,7 @@ import {
 } from '../Utils/console';
 
 export { insertion } from './insertion';
+export { deletion } from './deletion';
 
 const ArrayOperation = (arrayType = 'default') => {
 	if (arrayType === false) {
