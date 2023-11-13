@@ -1,6 +1,7 @@
 import ArrayOperation, {
 	traversing,
-	insertion
+	insertion,
+	deletion
 } from './Array'
 
 
@@ -23,6 +24,10 @@ const App = () => {
 	const insertToPosition = insertion(arrString, 'Root4ce', 2);
 	insertToPosition.insertAndReturnNewArray();
 	insertToPosition.insertAndModifyOriginalArray();
+
+	// Delete element from array
+	const deleteElement = deletion(arr, 0);
+	deleteElement.deleteIndex();
 }
 
 export default App;
