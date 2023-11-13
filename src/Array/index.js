@@ -4,6 +4,7 @@ import {
 	consoleOutput
 } from '../Utils/console';
 
+export { insertion } from './insertion';
 
 const ArrayOperation = (arrayType = 'default') => {
 	if (arrayType === false) {
@@ -13,8 +14,6 @@ const ArrayOperation = (arrayType = 'default') => {
 }
 
 export const traversing = (inputArray) => {
-	consoleInput(inputArray);
-
 	const traverse = () => {
 		for (let i = 0; i < inputArray.length; i++) {
 			console.log(inputArray[i])
@@ -22,50 +21,33 @@ export const traversing = (inputArray) => {
 	}
 
 	const getLength = (inputArray) => {
+		consoleInput(inputArray);
 		consoleOperation(`Get the length of given array.`)
 		const result = inputArray.lengt;
-		consoleOutput(result);
+		consoleOutput('Length using arr.length', result);
 		return result;
 	}
 
 	const access = (index) => {
+		consoleInput(inputArray);
 		consoleOperation(`Access the value of index (${index}) from input.`);
 		if (index !== undefined && index >= 0 && index < inputArray.length) {
 			const result = inputArray[index];
-			consoleOutput(result)
+			consoleOutput('Access value using arr[index]', result)
 			return result;
 		} else {
 			return "Invalid index or index not provided";
 		}
 	};
 
-	const insertElement = (element, position) => {
-		consoleOperation(`Insert a new element (${element}) into the index (${position}).`)
-
-		if (position === 'undefined' || position < 0 || position > inputArray.length) {
-			console.warn(`Inavlid index/position ! index/position should be between 0 to ${inputArray.length}`)
-			return;
-		}
-
-		let updatedArray = [];
-
-		for (let i = 0; i < position; i++) {
-			updatedArray[i] = inputArray[i];
-		}
-		updatedArray[position] = element;
-
-		for (let i = position; i < inputArray.length; i++) {
-			updatedArray[i + 1] = inputArray[i];
-		}
-		consoleOutput(updatedArray)
-		return updatedArray;
+	const deleteElement = (position) => {
+		consoleOperation(`Delete element (${element}) into the index (${position}).`)
 	}
 
 	return {
 		traverse,
 		getLength,
-		access,
-		insertElement
+		access
 	};
 }
 
