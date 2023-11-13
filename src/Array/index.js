@@ -47,8 +47,7 @@ export const traversing = (inputArray) => {
 	return {
 		traverse,
 		getLength,
-		access,
-		insertElement
+		access
 	};
 }
 
