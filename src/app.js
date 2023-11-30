@@ -2,7 +2,11 @@ import ArrayOperation, {
 	traversing,
 	insertion,
 	deletion
-} from './Array'
+} from './Array';
+
+import {
+	sameFrequency
+} from './Practice/Frequency';
 
 
 const App = () => {
@@ -17,17 +21,19 @@ const App = () => {
 	const arrString = ['Superman', 'Spiderman', 'Batman', 'Ironman', 'Thor', 'The Flash'];
 	const traversal = traversing(arr);
 
-	// Access value of index
-	const indexValue = traversal.access(2);
+	/**
+	// 01. Access value of index
+	traversal.access(2);
 
-	// Insert Element to specific index/position
+	// 02. Insert Element to specific index/position
 	const insertToPosition = insertion(arrString, 'Root4ce', 2);
 	insertToPosition.insertAndReturnNewArray();
 	insertToPosition.insertAndModifyOriginalArray();
 
-	// Delete element from array
+	// 03. Delete element from array
 	const deleteElement = deletion(arr, 0);
 	deleteElement.deleteIndex();
+	*/
 }
 
 export default App;
